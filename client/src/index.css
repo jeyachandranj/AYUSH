@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.screen {
+  @apply min-h-screen w-screen;
+}
+
+.full {
+  @apply w-full h-full;
+}
+
+.center {
+  @apply flex justify-center items-center;
+}
