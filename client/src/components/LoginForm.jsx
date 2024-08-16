@@ -1,31 +1,27 @@
 import { useNavigate } from "react-router-dom";
-import API from "../axios";
+import API from "../axios"; // Ensure API is correctly configured
 import { useRef } from "react";
 import PropTypes from "prop-types";
 
 const LoginForm = ({ isLoading, setIsLoading }) => {
-  const userNameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
 
   const submit = async () => {
-    const username = userNameRef.current.value;
-    const password = passwordRef.current.value;
     const email = emailRef.current.value;
+    const password = passwordRef.current.value;
 
-    if (!username || !password || !email) return;
+    if (!email || !password) return;
     try {
       setIsLoading(true);
-      const res = await API.post("/user/login", {
-        username,
-        password,
-        email,
-      });
+      const res = await API.post("http://localhost:5000/api/login", { email, password });
 
-      if (res.status === 200) navigate("/");
+      if (res.status === 200) {
+        navigate("/");
+      }
     } catch (error) {
-      console.error(error);
+      console.error("Error during login:", error);
     } finally {
       setIsLoading(false);
     }
@@ -33,18 +29,6 @@ const LoginForm = ({ isLoading, setIsLoading }) => {
 
   return (
     <main className="bg-white text-secondary w-96 p-4 rounded-md border-2 border-ascent flex flex-col gap-4">
-      <section className="flex flex-col gap-1">
-        <label htmlFor="username" className="font-bold">
-          USERNAME:{" "}
-        </label>
-        <input
-          id="username"
-          type="text"
-          placeholder="Enter user name"
-          className="p-2 border-2 border-ascent rounded-md focus:outline-none"
-        />
-      </section>
-
       <section className="flex flex-col gap-1">
         <label htmlFor="email" className="font-bold">
           EMAIL:{" "}
@@ -54,6 +38,7 @@ const LoginForm = ({ isLoading, setIsLoading }) => {
           type="email"
           placeholder="Enter email"
           className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+          ref={emailRef}
         />
       </section>
 
@@ -66,6 +51,7 @@ const LoginForm = ({ isLoading, setIsLoading }) => {
           type="password"
           placeholder="Enter password"
           className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+          ref={passwordRef}
         />
       </section>
 
