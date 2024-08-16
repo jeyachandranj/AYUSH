@@ -10,40 +10,24 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost:27017/ayuse", {
+mongoose.connect("mongodb://localhost:27017/ayush", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
- }).then(() => console.log('MongoDB connected success'))
+ }).then(() => console.log('MongoDB connected to local database'))
    .catch((err) => console.log('Failed to connect to MongoDB', err));
  
 
-   app.post('/api/register', async (req, res) => {
-    const { username, email, password, phone, companyName, entityType, dateOfIncorporation, companyRegistrationNumber, registeredAddress, mailingAddress, contactPerson, contactEmail, contactMobile } = req.body;
-    try {
-       const hashedPassword = await bcrypt.hash(password, 10);
-       const newUser = new User({
-          username,
-          email,
-          password: hashedPassword,
-          phone,
-          companyName,
-          entityType,
-          dateOfIncorporation,
-          companyRegistrationNumber,
-          registeredAddress,
-          mailingAddress,
-          contactPerson,
-          contactEmail,
-          contactMobile
-       });
-       await newUser.save();
-       res.status(201).json('User registered');
-    } catch (error) {
-       res.status(500).json('Error registering user');
-    }
- });
- 
-
+app.post('/api/register', async (req, res) => {
+   const { username, email, password, phone } = req.body;
+   try {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const newUser = new User({ username, email, password: hashedPassword, phone });
+      await newUser.save();
+      res.status(201).json('User registered');
+   } catch (error) {
+      res.status(500).json('Error registering user');
+   }
+});
 
 app.post('/api/login', async (req, res) => {
    const { email, password } = req.body;
@@ -61,5 +45,5 @@ app.post('/api/login', async (req, res) => {
    }
 });
 
-const PORT = 5000;
+const PORT =  5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
