@@ -17,17 +17,32 @@ mongoose.connect("mongodb://localhost:27017/ayuse", {
    .catch((err) => console.log('Failed to connect to MongoDB', err));
  
 
-app.post('/api/register', async (req, res) => {
-   const { username, email, password, phone } = req.body;
-   try {
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const newUser = new User({ username, email, password: hashedPassword, phone });
-      await newUser.save();
-      res.status(201).json('User registered');
-   } catch (error) {
-      res.status(500).json('Error registering user');
-   }
-});
+   app.post('/api/register', async (req, res) => {
+    const { username, email, password, phone, companyName, entityType, dateOfIncorporation, companyRegistrationNumber, registeredAddress, mailingAddress, contactPerson, contactEmail, contactMobile } = req.body;
+    try {
+       const hashedPassword = await bcrypt.hash(password, 10);
+       const newUser = new User({
+          username,
+          email,
+          password: hashedPassword,
+          phone,
+          companyName,
+          entityType,
+          dateOfIncorporation,
+          companyRegistrationNumber,
+          registeredAddress,
+          mailingAddress,
+          contactPerson,
+          contactEmail,
+          contactMobile
+       });
+       await newUser.save();
+       res.status(201).json('User registered');
+    } catch (error) {
+       res.status(500).json('Error registering user');
+    }
+ });
+ 
 
 
 app.post('/api/login', async (req, res) => {
