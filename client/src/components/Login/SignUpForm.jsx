@@ -15,24 +15,23 @@ const SignUpForm = ({ isLoading, setIsLoading }) => {
     const username = userNameRef.current.value;
     const password = passwordRef.current.value;
     const confirmPassword = confirmPasswordRef.current.value;
-    const mobile = mobileRef.current.value
+    const mobile = mobileRef.current.value;
     const email = emailRef.current.value;
 
     if (!username || !password || !email || !confirmPassword || !mobile) return;
     try {
       setIsLoading(true);
-      if(password !== confirmPassword) throw new Error("Passwords do not match");
-      const res = await API.post("/user/create", {
+      if (password !== confirmPassword) throw new Error("Passwords do not match");
+      const res = await API.post("http://localhost:5000/api/register", {
         username,
         password,
-        confirmPassword,
         mobile,
         email,
       });
 
       if (res.status === 200) navigate("/");
     } catch (error) {
-      console.error(error);
+      console.error("Error during registration:", error);
     } finally {
       setIsLoading(false);
     }
@@ -49,6 +48,7 @@ const SignUpForm = ({ isLoading, setIsLoading }) => {
           type="text"
           placeholder="Enter user name"
           className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+          ref={userNameRef}
         />
       </section>
 
@@ -61,6 +61,7 @@ const SignUpForm = ({ isLoading, setIsLoading }) => {
           type="email"
           placeholder="Enter email"
           className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+          ref={emailRef}
         />
       </section>
 
@@ -73,6 +74,7 @@ const SignUpForm = ({ isLoading, setIsLoading }) => {
           type="password"
           placeholder="Enter password"
           className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+          ref={passwordRef}
         />
       </section>
 
@@ -85,6 +87,7 @@ const SignUpForm = ({ isLoading, setIsLoading }) => {
           type="password"
           placeholder="Enter confirm password"
           className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+          ref={confirmPasswordRef}
         />
       </section>
 
@@ -97,6 +100,7 @@ const SignUpForm = ({ isLoading, setIsLoading }) => {
           type="number"
           placeholder="Enter number"
           className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+          ref={mobileRef}
         />
       </section>
 
