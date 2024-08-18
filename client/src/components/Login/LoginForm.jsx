@@ -1,32 +1,25 @@
 import { useNavigate } from "react-router-dom";
-import API from "../axios";
+import API from "../../axios";
 import { useRef } from "react";
 import PropTypes from "prop-types";
 
-const SignUpForm = ({ isLoading, setIsLoading }) => {
+const LoginForm = ({ isLoading, setIsLoading }) => {
   const userNameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
-  const confirmPasswordRef = useRef();
-  const mobileRef = useRef();
   const navigate = useNavigate();
 
   const submit = async () => {
     const username = userNameRef.current.value;
     const password = passwordRef.current.value;
-    const confirmPassword = confirmPasswordRef.current.value;
-    const mobile = mobileRef.current.value
     const email = emailRef.current.value;
 
-    if (!username || !password || !email || !confirmPassword || !mobile) return;
+    if (!username || !password || !email) return;
     try {
       setIsLoading(true);
-      if(password !== confirmPassword) throw new Error("Passwords do not match");
-      const res = await API.post("/user/create", {
+      const res = await API.post("/user/login", {
         username,
         password,
-        confirmPassword,
-        mobile,
         email,
       });
 
@@ -76,30 +69,6 @@ const SignUpForm = ({ isLoading, setIsLoading }) => {
         />
       </section>
 
-      <section className="flex flex-col gap-1">
-        <label htmlFor="confirm password" className="font-bold">
-          CONFIRM PASSWORD:{" "}
-        </label>
-        <input
-          id="confirm password"
-          type="password"
-          placeholder="Enter confirm password"
-          className="p-2 border-2 border-ascent rounded-md focus:outline-none"
-        />
-      </section>
-
-      <section className="flex flex-col gap-1">
-        <label htmlFor="mobile" className="font-bold">
-          MOBILE:{" "}
-        </label>
-        <input
-          id="mobile"
-          type="number"
-          placeholder="Enter number"
-          className="p-2 border-2 border-ascent rounded-md focus:outline-none"
-        />
-      </section>
-
       <section className="full center">
         <button
           type="button"
@@ -114,9 +83,9 @@ const SignUpForm = ({ isLoading, setIsLoading }) => {
   );
 };
 
-SignUpForm.propTypes = {
+LoginForm.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   setIsLoading: PropTypes.func.isRequired,
 };
 
-export default SignUpForm;
+export default LoginForm;
