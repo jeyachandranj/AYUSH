@@ -28,7 +28,7 @@ const LoginForm = ({ isLoading, setIsLoading }) => {
   };
 
   return (
-    <main className="bg-white text-secondary w-96 p-4 rounded-md border-2 border-ascent flex flex-col gap-4">
+    <main className="bg-white text-secondary w-96 p-4 rounded-md border-2 border-emerald-400 flex flex-col gap-4">
       <section className="flex flex-col gap-1">
         <label htmlFor="email" className="font-bold">
           EMAIL:{" "}
@@ -37,7 +37,7 @@ const LoginForm = ({ isLoading, setIsLoading }) => {
           id="email"
           type="email"
           placeholder="Enter email"
-          className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+          className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
           ref={emailRef}
         />
       </section>
@@ -50,7 +50,7 @@ const LoginForm = ({ isLoading, setIsLoading }) => {
           id="password"
           type="password"
           placeholder="Enter password"
-          className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+          className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
           ref={passwordRef}
         />
       </section>
@@ -58,7 +58,7 @@ const LoginForm = ({ isLoading, setIsLoading }) => {
       <section className="full center">
         <button
           type="button"
-          className="bg-ascent text-primary p-2 px-3 rounded-md cursor-pointer hover:opacity-90"
+          className="bg-emerald-400 text-primary p-2 px-3 rounded-md cursor-pointer hover:opacity-90"
           onClick={submit}
           disabled={isLoading}
         >

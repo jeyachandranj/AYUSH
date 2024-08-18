@@ -7,7 +7,7 @@ const CompanyDetailsForm = ({ setActive, details, setDetails }) => {
   }
 
   return (
-    <main className="bg-white text-secondary w-[48rem] p-4 rounded-md border-2 border-ascent flex flex-col gap-4">
+    <main className="bg-white text-secondary w-[48rem] p-4 rounded-md border-2 border-emerald-400 flex flex-col gap-4">
       <div className="w-full grid grid-cols-2 gap-3">
         <section className="flex flex-col gap-1">
           <label htmlFor="companyName" className="font-bold">
@@ -17,7 +17,7 @@ const CompanyDetailsForm = ({ setActive, details, setDetails }) => {
             id="companyName"
             type="text"
             placeholder="company name"
-            className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
             onChange={(e) => setDetails({ ...details, companyName: e.target.value })}
           />
         </section>
@@ -44,7 +44,7 @@ const CompanyDetailsForm = ({ setActive, details, setDetails }) => {
             id="registrationNumber"
             type="number"
             placeholder="registration number"
-            className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
             onChange={(e) => setDetails({ ...details, registrationNumber: e.target.value })}
           />
         </section>
@@ -57,7 +57,7 @@ const CompanyDetailsForm = ({ setActive, details, setDetails }) => {
             id="contactPerson"
             type="text"
             placeholder="contact person"
-            className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
             onChange={(e) => setDetails({ ...details, contactPerson: e.target.value })}
           />
         </section>
@@ -69,7 +69,7 @@ const CompanyDetailsForm = ({ setActive, details, setDetails }) => {
           <Textarea
             id="registrationAddress"
             placeholder="Enter address"
-            className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
             onChange={(e) => setDetails({ ...details, registrationAddress: e.target.value })}
           />
         </section>
@@ -81,7 +81,7 @@ const CompanyDetailsForm = ({ setActive, details, setDetails }) => {
           <Textarea
             id="manufacturingAddress"
             placeholder="Enter Manufacturing Address"
-            className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
             onChange={(e) => setDetails({ ...details, manufacturingAddress: e.target.value })}
           />
         </section>
@@ -94,7 +94,7 @@ const CompanyDetailsForm = ({ setActive, details, setDetails }) => {
             id="productCategory"
             type="text"
             placeholder="product category"
-            className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
             onChange={(e) => setDetails({ ...details, productCategory: e.target.value })}
           />
         </section>
@@ -107,7 +107,7 @@ const CompanyDetailsForm = ({ setActive, details, setDetails }) => {
             id="productionCategory"
             type="text"
             placeholder="production category"
-            className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
             onChange={(e) => setDetails({ ...details, productionCategory: e.target.value })}
           />
         </section>
@@ -120,7 +120,7 @@ const CompanyDetailsForm = ({ setActive, details, setDetails }) => {
             id="incorporationDate"
             type="datetime-local"
             placeholder="incorporation date"
-            className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
             onChange={(e) => setDetails({ ...details, incorporationDate: e.target.value })}
           />
         </section>
@@ -129,7 +129,7 @@ const CompanyDetailsForm = ({ setActive, details, setDetails }) => {
       <section className="full center">
         <button
           type="button"
-          className="bg-ascent text-primary p-2 px-3 rounded-md cursor-pointer hover:opacity-90"
+          className="bg-emerald-400 text-primary p-2 px-3 rounded-md cursor-pointer hover:opacity-90"
           onClick={submit}
         >
           SUBMIT

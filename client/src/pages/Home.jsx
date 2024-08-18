@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { StepViewer, CompanyDetailsForm, TransactionDetailsForm, CertificateForm } from "../components/Home"
-
+import Bot from "../pages/bot"
 const Home = () => {
   const [active, setActive] = useState(0);
   const [details, setDetails] = useState({
@@ -43,6 +43,7 @@ const Home = () => {
           active={active}
         />
       </section>
+      <Bot/>
 
       {active === 0 ?
         <CompanyDetailsForm setActive={setActive} details={details} setDetails={setDetails} /> :

@@ -5,7 +5,7 @@ const CertificateForm = ({ setActive, details, setDetails }) => {
   const submit = () => setActive(2);
 
   return (
-    <main className="bg-white text-secondary w-[48rem] p-4 rounded-md border-2 border-ascent flex flex-col gap-4">
+    <main className="bg-white text-secondary w-[48rem] p-4 rounded-md border-2 border-emerald-400 flex flex-col gap-4">
       <div className="w-full grid grid-cols-2 gap-3">
         <section className="flex flex-col gap-1">
           <label htmlFor="gmpCertificate" className="font-bold">
@@ -15,7 +15,7 @@ const CertificateForm = ({ setActive, details, setDetails }) => {
             id="gmpCertificate"
             type="file"
             accept='.pdf'
-            className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
             onChange={(e) => setDetails({ ...details, gmpCertificate: e.target.files[0] })}
           />
         </section>
@@ -28,7 +28,7 @@ const CertificateForm = ({ setActive, details, setDetails }) => {
             id="coppCertificate"
             type="file"
             accept='.pdf'
-            className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
             onChange={(e) => setDetails({ ...details, coppCertificate: e.target.files[0] })}
           />
         </section>
@@ -41,7 +41,7 @@ const CertificateForm = ({ setActive, details, setDetails }) => {
             id="ayushLicenseCertificate"
             type="file"
             accept='.pdf'
-            className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
             onChange={(e) => setDetails({ ...details, ayushLicenseCertificate: e.target.files[0] })}
           />
         </section>
@@ -54,7 +54,7 @@ const CertificateForm = ({ setActive, details, setDetails }) => {
             id="manufacturingLicense"
             type="file"
             accept='.pdf'
-            className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
             onChange={(e) => setDetails({ ...details, manufacturingLicense: e.target.files[0] })}
           />
         </section>
@@ -67,7 +67,7 @@ const CertificateForm = ({ setActive, details, setDetails }) => {
             id="companyIncorporationCertificate"
             type="file"
             accept='.pdf'
-            className="p-2 border-2 border-ascent rounded-md focus:outline-none"
+            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
             onChange={(e) => setDetails({ ...details, companyIncorporationCertificate: e.target.files[0] })}
           />
         </section>
@@ -76,7 +76,7 @@ const CertificateForm = ({ setActive, details, setDetails }) => {
       <section className="full center">
         <button
           type="button"
-          className="bg-ascent text-primary p-2 px-3 rounded-md cursor-pointer hover:opacity-90"
+          className="bg-emerald-400 text-primary p-2 px-3 rounded-md cursor-pointer hover:opacity-90"
           onClick={submit}
         >
           SUBMIT
