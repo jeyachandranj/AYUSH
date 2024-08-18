@@ -7,9 +7,11 @@ const Form = require('./models/form');
 const multer = require('multer');
 const path = require('path');
 dotenv.config();
+const bcrypt = require("bcrypt");
+
 
 const app = express();
-app.use(cors());
+app.use(cors("*"));
 app.use(express.json());
 
 
@@ -24,40 +26,49 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-mongoose.connect("mongodb://localhost:27017/ayush", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
- }).then(() => console.log('MongoDB connected to local database'))
+mongoose.connect("mongodb://localhost:27017/ayush", {}).then(() => console.log('MongoDB connected to local database'))
    .catch((err) => console.log('Failed to connect to MongoDB', err));
  
 
-app.post('/api/register', async (req, res) => {
-   const { username, email, password, phone } = req.body;
-   try {
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const newUser = new User({ username, email, password: hashedPassword, phone });
-      await newUser.save();
-      res.status(201).json('User registered');
-   } catch (error) {
-      res.status(500).json('Error registering user');
-   }
-});
+   app.post("/api/register", async (req, res, next) => {
+      try {
+         const { username, email, password,mobile } = req.body;
+         const usernameCheck = await User.findOne({ username });
+         if (usernameCheck)
+           return res.json({ msg: "Username already used", status: false });
+         const emailCheck = await User.findOne({ email });
+         if (emailCheck)
+           return res.json({ msg: "Email already used", status: false });
+         const hashedPassword = await bcrypt.hash(password, 10);
+         const user = await User.create({
+           email,
+           username,
+           password: hashedPassword,
+           mobile
+         });
+         delete user.password;
+         return res.json({ status: true, user });
+       } catch (ex) {
+         next(ex);
+       }
+    });
+  
 
-app.post('/api/login', async (req, res) => {
-   const { email, password } = req.body;
+app.post("/api/login", async (req, res,next) => {
    try {
-      const user = await User.findOne({ email });
-      if (!user) return res.status(400).json('Invalid email or password');
-      
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) return res.status(400).json('Invalid email or password');
-      
-      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-      res.json({ token });
-   } catch (error) {
-      res.status(500).json('Error logging in');
-   }
-});
+      const { username, password } = req.body;
+      const user = await User.findOne({ username });
+      if (!user)
+        return res.json({ msg: "Incorrect Username or Password", status: false });
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+      if (!isPasswordValid)
+        return res.json({ msg: "Incorrect Username or Password", status: false });
+      delete user.password;
+      return res.json({ status: true, user });
+    } catch (ex) {
+      next(ex);
+    }
+ });
 
 
 app.post('/api/form', upload.fields([
