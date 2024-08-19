@@ -4,7 +4,7 @@ from crewai import Agent, Task, Process, Crew
 from langchain_google_genai import ChatGoogleGenerativeAI
 import json
 
-api_key = "AIzaSyDWcQQWPVk36q3rjl9nuo8l7IEB_zCv6_c"
+api_key = "api key"
 app = Flask(__name__)
 CORS(app)
 
