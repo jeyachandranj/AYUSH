@@ -1,25 +1,27 @@
-import { Step, StepDescription, StepIcon, StepIndicator, StepNumber, StepSeparator, StepStatus, StepTitle, Stepper, Box } from '@chakra-ui/react'
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
 import PropTypes from "prop-types";
 
 const StepViewer = ({ steps, active }) => {
   return (
-    <Stepper size='lg' index={active}>
+    <Stepper
+      activeStep={active}
+      alternativeLabel
+      sx={{
+        fontSize: '1.2rem', // Increase font size
+        padding: '0.6rem',    // Increase padding
+        '& .MuiStepLabel-label': {
+          fontSize: '1.2rem', // Increase label font size
+        },
+        '& .MuiSvgIcon-root': {
+          fontSize: '2rem', // Increase icon size
+        },
+      }}
+    >
       {steps.map((step, index) => (
         <Step key={index}>
-          <StepIndicator>
-            <StepStatus
-              complete={<StepIcon />}
-              incomplete={<StepNumber />}
-              active={<StepNumber />}
-            />
-          </StepIndicator>
-
-          <Box flexShrink='0'>
-            <StepTitle>{step.title}</StepTitle>
-            <StepDescription>{step.description}</StepDescription>
-          </Box>
-
-          <StepSeparator />
+          <StepLabel>{step}</StepLabel>
         </Step>
       ))}
     </Stepper>

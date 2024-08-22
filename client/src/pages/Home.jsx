@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { StepViewer, CompanyDetailsForm, TransactionDetailsForm, CertificateForm } from "../components/Home"
 import Bot from "../pages/bot"
+
 const Home = () => {
   const [active, setActive] = useState(0);
   const [details, setDetails] = useState({
@@ -30,20 +31,19 @@ const Home = () => {
   const submit = () => console.log("submitted")
 
   const steps = [
-    { title: 'First', description: 'Company Details' },
-    { title: 'Second', description: 'Certificate Details' },
-    { title: 'Third', description: 'Transaction Details' },
+    "Company Details",
+    "Certificate Details",
+    "Account Details"
   ]
 
   return (
     <div className="screen bg-primary center flex-col gap-5">
-      <section className="w-[48rem]">
+      <section className="w-[36rem] mx-auto">
         <StepViewer
           steps={steps}
           active={active}
         />
       </section>
-      <Bot/>
 
       {active === 0 ?
         <CompanyDetailsForm setActive={setActive} details={details} setDetails={setDetails} /> :

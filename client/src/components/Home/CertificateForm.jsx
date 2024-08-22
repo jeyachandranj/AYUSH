@@ -1,21 +1,21 @@
-import { Input } from '@chakra-ui/react'
+import { TextField } from '@mui/material';
 import PropTypes from "prop-types";
 
 const CertificateForm = ({ setActive, details, setDetails }) => {
   const submit = () => setActive(2);
 
   return (
-    <main className="bg-white text-secondary w-[48rem] p-4 rounded-md border-2 border-emerald-400 flex flex-col gap-4">
-      <div className="w-full grid grid-cols-2 gap-3">
+    <main className="bg-white text-secondary w-[36rem] md:w-[48rem] mx-auto p-4 rounded-md border-2 border-emerald-400 flex flex-col gap-4">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
         <section className="flex flex-col gap-1">
           <label htmlFor="gmpCertificate" className="font-bold">
             GMP Certificate:{" "}
           </label>
-          <Input
+          <TextField
             id="gmpCertificate"
             type="file"
-            accept='.pdf'
-            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
+            inputProps={{ accept: '.pdf' }}
+            variant="outlined"
             onChange={(e) => setDetails({ ...details, gmpCertificate: e.target.files[0] })}
           />
         </section>
@@ -24,11 +24,11 @@ const CertificateForm = ({ setActive, details, setDetails }) => {
           <label htmlFor="coppCertificate" className="font-bold">
             COPP Certificate:{" "}
           </label>
-          <Input
+          <TextField
             id="coppCertificate"
             type="file"
-            accept='.pdf'
-            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
+            inputProps={{ accept: '.pdf' }}
+            variant="outlined"
             onChange={(e) => setDetails({ ...details, coppCertificate: e.target.files[0] })}
           />
         </section>
@@ -37,11 +37,11 @@ const CertificateForm = ({ setActive, details, setDetails }) => {
           <label htmlFor="ayushLicenseCertificate" className="font-bold">
             AYUSH License Certificate:{" "}
           </label>
-          <Input
+          <TextField
             id="ayushLicenseCertificate"
             type="file"
-            accept='.pdf'
-            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
+            inputProps={{ accept: '.pdf' }}
+            variant="outlined"
             onChange={(e) => setDetails({ ...details, ayushLicenseCertificate: e.target.files[0] })}
           />
         </section>
@@ -50,11 +50,11 @@ const CertificateForm = ({ setActive, details, setDetails }) => {
           <label htmlFor="manufacturingLicense" className="font-bold">
             Manufacturing License:{" "}
           </label>
-          <Input
+          <TextField
             id="manufacturingLicense"
             type="file"
-            accept='.pdf'
-            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
+            inputProps={{ accept: '.pdf' }}
+            variant="outlined"
             onChange={(e) => setDetails({ ...details, manufacturingLicense: e.target.files[0] })}
           />
         </section>
@@ -63,11 +63,11 @@ const CertificateForm = ({ setActive, details, setDetails }) => {
           <label htmlFor="companyIncorporationCertificate" className="font-bold">
             Company Incorporation Certificate:{" "}
           </label>
-          <Input
+          <TextField
             id="companyIncorporationCertificate"
             type="file"
-            accept='.pdf'
-            className="p-2 border-2 border-emerald-400 rounded-md focus:outline-none"
+            inputProps={{ accept: '.pdf' }}
+            variant="outlined"
             onChange={(e) => setDetails({ ...details, companyIncorporationCertificate: e.target.files[0] })}
           />
         </section>
