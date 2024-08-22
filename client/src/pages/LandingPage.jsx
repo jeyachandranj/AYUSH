@@ -1,3 +1,4 @@
+import Header from "../components/Landing/Header";
 import Navbar from "../components/Landing/Navbar";
 import Hero from "../components/Landing/Hero";
 import Analytics from "../components/Landing/Analytics";
@@ -6,7 +7,8 @@ import Cards from "../components/Landing/Cards";
 import Footer from "../components/Landing/Footer";
 function App() {
   return (
-    <div className="bg-gray-950">
+    <div className="bg-[#425417]">
+      <Header />
       <Navbar />
       <Hero />
       <Analytics />

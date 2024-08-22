@@ -126,7 +126,7 @@ const CompanyDetailsForm = ({ setActive, details, setDetails }) => {
         </section>
       </div>
 
-      <section className="full center">
+      <section className="flex justify-center">
         <button
           type="button"
           className="bg-emerald-400 text-primary p-2 px-3 rounded-md cursor-pointer hover:opacity-90"

@@ -1,8 +1,9 @@
-import { Login, Home } from './pages'
+import { Home } from './pages'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 import LandingPage from './pages/LandingPage'
 import Bot from './pages/bot'
+import Login from "./components/Login/login"
 const App = () => {
   return (
     <ChakraProvider>
