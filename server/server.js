@@ -1,26 +1,27 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const User = require('./models/user');
-const Form = require('./models/form');
-const multer = require('multer');
-const path = require('path');
-dotenv.config();
-const bcrypt = require("bcrypt");
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import User from './models/user';
+import Form from './models/form';
+import multer from 'multer';
+import path from 'path';
+import bcrypt from 'bcrypt';
 
+dotenv.config();
+
+const bcrypt = require("bcrypt");
 
 const app = express();
 app.use(cors("*"));
 app.use(express.json());
-
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads/');
     },
     filename: function (req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname)); 
+        cb(null, Date.now() + path.extname(file.originalname));
     }
 });
 
@@ -28,7 +29,7 @@ const upload = multer({ storage: storage });
 
 mongoose.connect("mongodb://localhost:27017/ayush", {}).then(() => console.log('MongoDB connected to local database'))
    .catch((err) => console.log('Failed to connect to MongoDB', err));
- 
+
 
    app.post("/api/register", async (req, res, next) => {
       try {
@@ -52,7 +53,7 @@ mongoose.connect("mongodb://localhost:27017/ayush", {}).then(() => console.log('
          next(ex);
        }
     });
-  
+
 
 app.post("/api/login", async (req, res,next) => {
    try {
