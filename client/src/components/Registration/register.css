@@ -1,0 +1,32 @@
+.table-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.table-cell {
+  max-width: 150px; /* Adjust as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    display: block;
+  }
+
+  thead,
+  tbody,
+  th,
+  td {
+    display: block;
+  }
+
+  th,
+  td {
+    width: auto;
+  }
+}

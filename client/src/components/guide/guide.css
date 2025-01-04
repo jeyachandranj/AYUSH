@@ -1,0 +1,215 @@
+/* Base styles */
+.guide-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.guide {
+  width: 70%;
+  height: 500px;
+  padding: 0px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guide iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.checklist {
+  width: 30%;
+  height: 470px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.checklist h3 {
+  margin-bottom: 15px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #333;
+}
+
+.checklist ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checklist li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #444;
+  display: flex;
+  align-items: center;
+}
+
+.checklist li::before {
+  content: "\2713"; /* Unicode character for tick/check mark */
+  color: green;
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.checklist li:last-child {
+  margin-bottom: 0;
+}
+
+.faq-container {
+  width: 100%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-container ul {
+  list-style: none;
+  padding: 0px;
+}
+.faq-container h3 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.faq-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.faq-item.active {
+  background-color: #f1f1f1;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.faq-icon {
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.faq-answer {
+  margin-top: 10px;
+  padding-left: 30px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Button styles */
+.guide-btn {
+  align-self: flex-end;
+  border: none;
+  background-color: #028702;
+  color: #fff;
+  font-size: 18px;
+  width: 70px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.guide-btn:hover {
+  background-color: #026a02;
+}
+.pdf-guide {
+  border: none;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  width: 300px;
+  background-color: #026a02;
+}
+/* Tablet styles */
+@media (max-width: 768px) {
+  .top-section {
+    flex-direction: column;
+  }
+
+  .guide {
+    width: 100%;
+    height: 300px;
+  }
+
+  .checklist {
+    width: 100%;
+    height: auto;
+  }
+
+  .guide-btn {
+    width: 100%;
+    align-self: center;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .faq-container h3 {
+    font-size: 20px;
+  }
+
+  .faq-question {
+    font-size: 16px;
+  }
+
+  .faq-answer {
+    font-size: 14px;
+  }
+
+  .guide {
+    height: 250px;
+  }
+
+  .checklist {
+    padding: 10px;
+  }
+
+  .checklist h3 {
+    font-size: 20px;
+  }
+
+  .checklist li {
+    font-size: 14px;
+  }
+
+  .guide-btn {
+    width: 100%;
+    align-self: center;
+  }
+}

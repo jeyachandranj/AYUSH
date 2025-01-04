@@ -53,38 +53,39 @@ const AyushStartup = () => {
       setTimeout(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
         setAnimating(false);
-      }, 500); // Animation duration
-    }, 2000); // Change slide every 2 seconds
+      }, 300); // Animation duration
+    }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
   }, [slides.length]);
 
   return (
-    <div className="min-h-screen flex flex-col mt-[100px] items-center bg-green-100 bg-[url('https://img.freepik.com/premium-photo/ayurvedic-spices_6751-83.jpg?size=626&ext=jpg&ga=GA1.1.1532003599.1724182688&semt=ais_hybrid')] bg-cover bg-center">
+    <div className="min-h-screen flex flex-col items-center bg-green-100 bg-cover bg-center"
+      style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/ayurvedic-spices_6751-83.jpg?size=626&ext=jpg&ga=GA1.1.1532003599.1724182688&semt=ais_hybrid')" }}>
       {/* Main Container */}
-      <div className="max-w-7xl w-full p-8">
+      <div className="max-w-7xl w-full p-4 sm:p-8 lg:p-12">
         {/* Carousel */}
         <div
-          className={`p-8 rounded-lg shadow-lg relative transition-all duration-500 ease-in-out ${animating ? 'opacity-0 translate-y-10' : 'opacity-100 translate-y-0'}`}
+          className={`relative p-6 sm:p-8 lg:p-12 rounded-lg shadow-lg transition-all duration-500 ease-in-out ${animating ? 'opacity-0 translate-y-10' : 'opacity-100 translate-y-0'}`}
           style={{ backgroundColor: slides[currentIndex].bgColor }}
         >
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-3/4">
-              <h1 className="text-3xl md:text-5xl font-bold text-black">
+          <div className="flex flex-col sm:flex-row items-center">
+            <div className="sm:w-3/4">
+              <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black">
                 {slides[currentIndex].title}
               </h1>
-              <p className="mt-4 text-lg md:text-2xl text-black">
+              <p className="mt-4 text-base sm:text-lg md:text-xl lg:text-2xl text-black">
                 {slides[currentIndex].description}
               </p>
-              <button className="mt-8 bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200">
+              <button className="mt-6 bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200">
                 {slides[currentIndex].buttonText}
               </button>
             </div>
-            <div className="md:w-1/4 flex justify-center items-center">
+            <div className="sm:w-1/4 flex justify-center items-center mt-4 sm:mt-0">
               <img
                 src={slides[currentIndex].imgSrc}
                 alt={`Slide ${currentIndex + 1}`}
-                className="w-40 md:w-60 lg:w-72 transition-transform duration-500 ease-in-out transform hover:scale-105"
+                className="w-32 sm:w-48 md:w-56 lg:w-72 transition-transform duration-500 ease-in-out transform hover:scale-105"
               />
             </div>
           </div>
@@ -99,12 +100,14 @@ const AyushStartup = () => {
         </div>
 
         {/* Statistics */}
-        <div className="mt-8 grid grid-cols-5 gap-5 p-6 rounded-lg ">
-          <StatItem count="10,000+" label="AYURVEDA" />
-          <StatItem count="500,000+" label="YOGA registration" />
-          <StatItem count="500,000+" label="UNANI registration" />
-          <StatItem count="500,000+" label="SIDDHA registration" />
-          <StatItem count="500,000+" label="HOMEOPATHY registration" />
+        <div className="mt-8 p-6 rounded-lg shadow-md bg-transparent">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+            <StatItem count="10,000+" label="AYURVEDA" />
+            <StatItem count="500,000+" label="YOGA registration" />
+            <StatItem count="500,000+" label="UNANI registration" />
+            <StatItem count="500,000+" label="SIDDHA registration" />
+            <StatItem count="500,000+" label="HOMEOPATHY registration" />
+          </div>
         </div>
       </div>
     </div>

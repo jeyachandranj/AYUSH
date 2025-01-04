@@ -1,0 +1,85 @@
+.container1 {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.steps1 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step1 {
+  width: 12%;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.step.active1 {
+  background-color: #f0f0f0;
+}
+
+.step1 .number1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.step1 .title1 {
+  font-size: 14px;
+  color: #666;
+}
+
+.status1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.status1 .title1 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.status1 .status-text1 {
+  font-size: 14px;
+  color: #666;
+}
+
+.download-button1 button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.download-button1 button:hover {
+  background-color: #45a049;
+}

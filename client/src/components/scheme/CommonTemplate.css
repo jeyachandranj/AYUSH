@@ -1,0 +1,112 @@
+/* Container for all courses (cards) */
+.ag-courses_box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px 0;
+  }
+  
+  /* Each card */
+  .ag-courses_item {
+    flex-basis: calc(33.33333% - 30px);
+    margin: 0 15px 30px;
+    border-radius: 28px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+  }
+  
+  .ag-courses-item_link {
+    display: block;
+    padding: 30px 20px;
+    background-color: whitesmoke;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.4s ease, padding 0.4s ease;
+  }
+  
+  .ag-courses-item_title {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: black;
+    position: relative;
+    min-height: 8px;
+    margin-bottom: 25px;
+  }
+  
+  .ag-courses-item_date-box {
+    font-size: 0.8em;
+    color: black;
+    
+  }
+  
+  .description:hover {
+    color: white;
+  }
+  
+  .ag-courses-item_bg {
+    height: 128px;
+    width: 128px;
+    background-color: #f9b234;
+    position: absolute;
+    top: -75px;
+    right: -75px;
+    border-radius: 50%;
+    transition: transform 0.75s ease;
+    z-index: -1;
+  }
+  
+  .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+    background-color: #3ecd5e;
+  }
+  
+  .ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+    background-color: #02a2ff;
+  }
+  
+  .ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+    background-color: #cd3e94;
+  }
+  
+  /* Hover effects */
+  .ag-courses-item_link:hover {
+    color: white;
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .ag-courses-item_link:hover .ag-courses-item_bg {
+    transform: scale(10);
+  }
+  
+  .ag-courses-item_link:hover .ag-courses-item_title,
+  .ag-courses-item_link:hover .ag-courses-item_date-box {
+    color: white;
+  }
+  
+  .ag-courses-item_link:hover .ag-courses-item_date-box .description {
+    color: white;
+  }
+  
+  /* Responsive design */
+  @media only screen and (max-width: 979px) {
+    .ag-courses_item {
+      flex-basis: calc(50% - 30px);
+    }
+  }
+  
+  @media only screen and (max-width: 639px) {
+    .ag-courses_item {
+      flex-basis: 100%;
+    }
+  }
+  
+  /* Heading styling */
+  .heading {
+    text-align: center;
+    font-size: 3rem;
+    color: green;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
