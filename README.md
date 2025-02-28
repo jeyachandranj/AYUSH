@@ -69,7 +69,7 @@ cd client
 npm install
 
 # Start the frontend
-yarn start
+npm run dev
 ```
 
 ---
